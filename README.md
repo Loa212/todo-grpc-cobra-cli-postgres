@@ -1,1 +1,1 @@
-docker exec -it [Docker_Process_Id] psql -U postgres todo2
+# A simple Todo list made using Go, gRPC, postgres & cobra-cli
