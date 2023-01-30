@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package todomgmt;
+
+option go_package = "github.com/Loa212/todo-grpc;todo_grpc";
+
+service TodoService {
+    rpc CreateTodo (NewTodo) returns (Todo) {}
+    rpc GetTodos (GetTodosParams) returns (TodosList) {}
+    rpc UpdateTodo (Todo) returns (Todo) {}
+    rpc DeleteTodo (GetTodoParams) returns (GetTodoParams) {}
+}
+
+message NewTodo {
+    string title = 1;
+    string description = 2;
+    bool done = 3;
+}
+
+message Todo {
+    string title = 1;
+    string description = 2;
+    bool done = 3;
+    int32 id = 4;
+}
+
+message GetTodosParams {}
+
+message TodosList {
+    repeated Todo todos = 1;
+}
+
+message GetTodoParams {
+    int32 id = 1;
+}
